@@ -1,0 +1,97 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    font-family: HelveticaNeue;
+}
+
+/* HEADER */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    font-style: italic;
+    margin-left: 130px;
+    margin-right: 200px;
+}
+
+.header a {
+    color: #707070;
+    font-size: 20px;
+    line-height: 70px;
+    text-decoration: none;
+}
+
+.logo {
+    color: #707070;
+    font-size: 44px;
+    line-height: 70px;
+    margin: 0;
+    margin-right: 32px;
+}
+
+.home {
+    margin: 0;
+    margin-left: 32px;
+}
+
+.account {
+    margin: 0;
+    margin-right: 20px;
+}
+
+.logout {
+    margin: 0;
+    margin-left: 20px;
+}
+
+.left-menu {
+    display: flex;
+}
+
+.right-menu {
+    display: flex;
+}
+
+hr {
+    width: 100%;
+    height: 0;
+    color: #EBEBEB;
+    border: #EBEBEB solid 1px;
+}
+
+/* CONTENT */
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 130px;
+    margin-right: 200px;
+}
+
+.bet-board h1 {
+    color: #707070;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 85px;
+    margin: 0;
+    margin-top: 11px;
+}
+
+.bet-board p {
+    color: #868686;
+    font-size: 17px;
+    line-height: 70px;
+    font-style: italic;
+
+}
+
+.game-button {
+    border-radius: 100px;
+    border: 1px #7F3992 solid;
+    background-color: white;
+    width: 113px;
+    height: 34px;
+    font-size: 14px;
+    font-style: italic;
+    color: #7F3992
+}
