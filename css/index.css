@@ -1,9 +1,3 @@
-body {
-    min-height: 98vh;
-    width: 99vw;
-    margin: 0;
-}
-
 .container {
     display: flex;
     flex-direction: column;
@@ -18,7 +12,7 @@ body {
     font-style: italic;
     margin-left: 130px;
     margin-right: 200px;
-}
+} 
 
 .header a {
     color: #707070;
@@ -30,10 +24,8 @@ body {
 .logo {
     color: #707070;
     font-size: 44px;
-    /* line-height: 70px; */
     margin: 0;
     margin-top: 15px;
-    /* margin-right: 32px; */
     text-align: center;
 }
 
@@ -86,6 +78,10 @@ hr {
     margin-right: 200px;
 }
 
+.bet-board {
+    margin-right: 40px;
+}
+
 .bet-board h1 {
     color: #707070;
     font-weight: 300;
@@ -111,7 +107,8 @@ hr {
     height: 34px;
     font-size: 14px;
     font-style: italic;
-    color: #7F3992
+    color: #7F3992;
+    margin-right: 25px;
 }
 
 .fill-bet {
@@ -138,6 +135,8 @@ hr {
     margin-left: 6px;
     margin-right: 6px;
     margin-bottom: 20px;
+    width: 63px;
+    height: 65px;
 }
 
 .action-buttons {
@@ -172,7 +171,6 @@ hr {
     padding-right: 25px;
     margin-top: 44px;
     margin-left: auto;
-    margin-right: 100px;
 }
 
 /* CART */
@@ -186,6 +184,7 @@ hr {
     border-radius: 10px;
     min-width: 317px;
     margin-top: 40px;
+    height: fit-content;
 }
 
 .cart h1 {
@@ -242,10 +241,8 @@ hr {
     font-style: italic;
     border: none;
     border-top: 1px solid #E2E2E2;
-    /* border-bottom: 1px solid black; */
     padding: 27px;
     background-color: white;
     width: 100%;
     margin-bottom:5px;
-    /* height: 100%; */
 }
