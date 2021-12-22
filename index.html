@@ -12,56 +12,75 @@
     <div class="container">
         <div class="header">
             <div class="left-menu">
-                <p class="logo">TGL</p>
+                <div class="logo-container">
+                    <p class="logo">TGL</p>
+                    <div class="logo-underline"></div>
+                </div>
                 <a href="#" class="home">Home</a>
             </div>
             <div class="right-menu">
                 <a href="#" class="account">Account</a>
-                <a href="#" class="logout">Log Out -></a>
+                <a href="#" class="logout">Log Out <img alt="right-arrow" src="assets/icons/arrow.svg" /></a>
             </div>
         </div>
         <hr>
         <div class="content">
             <div class="bet-board">
                 <h1><b>New Bet</b> For MEGA-SENA</h1>
-                <p>Choose a game</p>
+                <p class="choose-game"><b>Choose a game</b></p>
                 <div class="games-buttons">
                     <button class="game-button">Lotofacil</button>
                     <button class="game-button">Mega-Sena</button>
                     <button class="game-button">Lotomania</button>
                 </div>
-                <p><b>Fill your bet</b></p>
-                <p>Mark as many numbers as you want up to a maximum of 50. 
+                <p class="fill-bet"><b>Fill your bet</b></p>
+                <p class="game-description">Mark as many numbers as you want up to a maximum of 50. 
                     Win by hitting 15, 16, 17, 18, 19, 20 or none of the 20 numbers drawn.</p>
                 <div clas="board">
-
+                    <button class="board-button">01</button>
+                    <button class="board-button">01</button>
+                    <button class="board-button">01</button>
+                    <button class="board-button">01</button>
+                    <button class="board-button">01</button>
+                    <button class="board-button">01</button>
+                    <button class="board-button">01</button>
+                    <button class="board-button">01</button>
+                    <button class="board-button">01</button>
                 </div>
                 <div class="action-buttons">
-                    <button>Complete game</button>
-                    <button>Clear Game</button>
-                    <button>Add to cart</button>
+                    <button class="action-button">Complete game</button>
+                    <button class="action-button">Clear Game</button>
+                    <button class="cart-button">Add to cart</button>
                 </div>
             </div>
             <div class="cart">
                 <h1>Cart</h1>
                 <div class="cart-itens">
                     <div class="item">
-                        <img alt="trash-icon" />
+                        <img alt="trash-icon"  src="assets/icons/trash.svg" />
                         <div class="bar"></div>
-                        <p>01, 02, 03, 04, 05, 06</p>
-                        <p>Lotofacil</p>
-                        <p>R$ 2,50</p>
+                        <div class="item-infos">
+                            <p>01, 02, 03, 04, 05, 06</p>
+                            <div class="item-game">
+                                <p class="item-game-name">Lotofacil</p>
+                                <p>R$ 2,50</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="item">
-                        <img alt="trash-icon" />
+                        <img alt="trash-icon" src="assets/icons/trash.svg" />
                         <div class="bar"></div>
-                        <p>01, 02, 03, 04, 05, 06</p>
-                        <p>Lotofacil</p>
-                        <p>R$ 2,50</p>
+                        <div class="item-infos">
+                            <p>01, 02, 03, 04, 05, 06</p>
+                            <div class="item-game">
+                                <p class="item-game-name">Lotofacil</p>
+                                <p>R$ 2,50</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <h2>CART TOTAL: R$ 7,00</h2>
-                <button>Save -></button>
+                <p class="cart-total"><b>CART</b> TOTAL: R$ 7,00</p>
+                <button class="save-button">Save <img alt="right-arrow" src="assets/icons/arrow.svg" /></button>
             </div>
         </div>
     </div>

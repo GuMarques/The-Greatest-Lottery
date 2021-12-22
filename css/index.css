@@ -1,3 +1,9 @@
+body {
+    min-height: 98vh;
+    width: 99vw;
+    margin: 0;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -24,9 +30,19 @@
 .logo {
     color: #707070;
     font-size: 44px;
-    line-height: 70px;
+    /* line-height: 70px; */
     margin: 0;
-    margin-right: 32px;
+    margin-top: 15px;
+    /* margin-right: 32px; */
+    text-align: center;
+}
+
+.logo-underline {
+    width: 107px;
+    height: 7px;
+    background-color: #B5C401;
+    border-radius: 6px;
+    margin-bottom: -3px;
 }
 
 .home {
@@ -57,6 +73,8 @@ hr {
     height: 0;
     color: #EBEBEB;
     border: #EBEBEB solid 1px;
+    margin-top: 0;
+    z-index: -1;
 }
 
 /* CONTENT */
@@ -72,17 +90,17 @@ hr {
     color: #707070;
     font-weight: 300;
     font-size: 24px;
-    line-height: 85px;
     margin: 0;
-    margin-top: 11px;
+    margin-top: 72px;
 }
 
-.bet-board p {
+.choose-game {
     color: #868686;
     font-size: 17px;
-    line-height: 70px;
     font-style: italic;
-
+    margin: 0;
+    margin-bottom: 20px;
+    margin-top: 33px;
 }
 
 .game-button {
@@ -94,4 +112,140 @@ hr {
     font-size: 14px;
     font-style: italic;
     color: #7F3992
+}
+
+.fill-bet {
+    color: #868686;
+    font-style: italic;
+}
+
+.game-description {
+    color: #868686;
+    line-height: 24px;
+    font-style: italic;
+    margin-right: 72px;
+    margin-bottom: 27px;
+}
+
+.board-button {
+    background-color: #ADC0C4;
+    border-radius: 100%;
+    border: none;
+    font-size: 20px;
+    line-height: 24px;
+    color: white;
+    padding: 20px;
+    margin-left: 6px;
+    margin-right: 6px;
+    margin-bottom: 20px;
+}
+
+.action-buttons {
+    display: flex;
+    align-items: flex-start;
+    justify-content: start;
+}
+
+.action-button {
+    background-color: white;
+    border: 1px solid #27C383;
+    font-size: 16px;
+    color: #27C383;
+    border-radius: 10px;
+    padding-top: 17px;
+    padding-bottom: 17px;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-top: 44px;
+    margin-right: 25px;
+}
+
+.cart-button {
+    background-color: #27C383;
+    border: none;
+    font-size: 16px;
+    color: white;
+    border-radius: 10px;
+    padding-top: 17px;
+    padding-bottom: 17px;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-top: 44px;
+    margin-left: auto;
+    margin-right: 100px;
+}
+
+/* CART */
+
+.cart {
+    display: flex;
+    flex-direction: column;
+    color: #707070;
+    border: 1px solid #E2E2E2;
+    justify-content: space-between;
+    border-radius: 10px;
+    min-width: 317px;
+    margin-top: 40px;
+}
+
+.cart h1 {
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-bottom: 35px;
+}
+
+.cart-itens {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.item {
+    display: flex;
+    margin-bottom: 32px;
+}
+
+.item img {
+    width: 20px;
+}
+
+.bar {
+    width: 4px;
+    height: 86px;
+    border-bottom-left-radius: 100px;
+    border-top-left-radius: 100px;
+    background-color: #7F3992;
+    margin-left: 14px;
+    margin-right: 12px;
+}
+
+.item-game {
+    display: flex;
+}
+
+.item-game-name {
+    color: #7F3992;
+    margin-right: 14px;
+    font-style: italic;
+}
+
+.cart-total {
+    font-size: 24px;
+    margin: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-bottom: 47px;
+}
+
+.save-button {
+    color: #27C383;
+    font-size: 35px;
+    font-style: italic;
+    border: none;
+    border-top: 1px solid #E2E2E2;
+    /* border-bottom: 1px solid black; */
+    padding: 27px;
+    background-color: white;
+    width: 100%;
+    margin-bottom:5px;
+    /* height: 100%; */
 }
