@@ -26,7 +26,7 @@
         <hr>
         <div class="content">
             <div class="bet-board">
-                <h1><b>New Bet</b> For MEGA-SENA</h1>
+                <h1><b>New Bet</b> For <span data-js="game-name">MEGA-SENA</span></h1>
                 <p class="choose-game"><b>Choose a game</b></p>
                 <div class="games-buttons" data-js="games-buttons">
                 </div>
@@ -38,39 +38,22 @@
                 <div class="action-buttons">
                     <button class="action-button" data-js="complete-game-button">Complete game</button>
                     <button class="action-button" data-js="clear-game-button">Clear Game</button>
-                    <button class="cart-button">Add to cart</button>
+                    <button class="cart-button" data-js="add-game-button">Add to cart</button>
                 </div>
             </div>
             <div class="cart">
                 <h1>Cart</h1>
-                <div class="cart-itens">
-                    <div class="item">
-                        <img alt="trash-icon"  src="assets/icons/trash.svg" />
-                        <div class="bar"></div>
-                        <div class="item-infos">
-                            <p>01, 02, 03, 04, 05, 06</p>
-                            <div class="item-game">
-                                <p class="item-game-name">Lotofacil</p>
-                                <p>R$ 2,50</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img alt="trash-icon" src="assets/icons/trash.svg" />
-                        <div class="bar"></div>
-                        <div class="item-infos">
-                            <p>01, 02, 03, 04, 05, 06</p>
-                            <div class="item-game">
-                                <p class="item-game-name">Lotofacil</p>
-                                <p>R$ 2,50</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="cart-itens" data-js="cart-itens">
+                    
                 </div>
-                <p class="cart-total"><b>CART</b> TOTAL: R$ 7,00</p>
+                <p class="cart-total"><b>CART</b> TOTAL: <span data-js="total-value">R$ 0,00</span></p>
                 <button class="save-button">Save <img alt="right-arrow" src="assets/icons/arrow.svg" /></button>
             </div>
         </div>
+        <hr>
+        <footer>
+            <p>Copyright 2020 Luby Software</p>
+        </footer>
     </div>
     <script src="js/main.js"></script>
 </body>

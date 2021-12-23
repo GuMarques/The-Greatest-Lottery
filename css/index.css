@@ -1,3 +1,7 @@
+html {
+    background-color: #F7F7F7;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -52,6 +56,10 @@
     margin-left: 20px;
 }
 
+.logout img {
+    width: 20.85px;
+}
+
 .left-menu {
     display: flex;
 }
@@ -76,6 +84,7 @@ hr {
     justify-content: space-between;
     margin-left: 130px;
     margin-right: 200px;
+    margin-bottom: 50px;
 }
 
 .bet-board {
@@ -185,6 +194,7 @@ hr {
     min-width: 317px;
     margin-top: 40px;
     height: fit-content;
+    background: linear-gradient(to bottom, white 0%, white 50%, #F4F4F4 90%, #F4F4F4 100%);
 }
 
 .cart h1 {
@@ -205,6 +215,7 @@ hr {
 
 .item img {
     width: 20px;
+    height: 86px;
 }
 
 .bar {
@@ -219,12 +230,28 @@ hr {
 
 .item-game {
     display: flex;
+    margin-bottom: 8px;
+}
+
+.item-infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.item-numbers {
+    margin-top: 8px;
 }
 
 .item-game-name {
     color: #7F3992;
+    margin: 0;
     margin-right: 14px;
     font-style: italic;
+}
+
+.item-game-value {
+    margin: 0;
 }
 
 .cart-total {
@@ -242,7 +269,26 @@ hr {
     border: none;
     border-top: 1px solid #E2E2E2;
     padding: 27px;
-    background-color: white;
+    background-color: #F4F4F4;
     width: 100%;
     margin-bottom:5px;
+}
+
+.save-button img {
+    width: 25px;
+    filter: invert(58%) sepia(53%) saturate(543%) hue-rotate(104deg) brightness(96%) contrast(95%);;
+}
+
+/* FOOTER */
+
+footer {
+    display: flex;
+    justify-content: center;
+}
+
+footer p {
+    color: #707070;
+    font-size: 15px;
+    margin-top: 30px;
+    margin-bottom: 28px;
 }
