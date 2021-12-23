@@ -1,17 +1,30 @@
 @font-face {
     font-family: 'HelveticaNeue';
-    src: url('../assets/fonts/HelveticaNeueBold.ttf') format('truetype');
-    font-weight: 700;
-    font-style: bold;
+    src: url('../assets/fonts/HelveticaNeue.ttf') format('truetype');
+    font-style: normal;
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'HelveticaNeue';
+    src: url('../assets/fonts/HelveticaNeueBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
 
 @font-face {
     font-family: 'HelveticaNeue';
-    src: url('../assets/fonts/HelveticaNeueBlackCond.ttf') format('truetype');
-    font-weight: 900;
-    font-style: normal;
+    src: url('../assets/fonts/HelveticaNeueItalic.ttf') format('truetype');
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'HelveticaNeue';
+    src: url('../assets/fonts/HelveticaNeueBoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
     font-display: swap;
 }
 
@@ -22,44 +35,3 @@
     font-style: normal;
     font-display: swap;
 }
-
-@font-face {
-    font-family: 'HelveticaNeue';
-    src: url('../assets/fonts/HelveticaNeueHeavy.ttf') format('truetype');
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'HelveticaNeue';
-    src: url('../assets/fonts/HelveticaNeueThin.ttf') format('truetype');
-    font-weight: 100;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'HelveticaNeue';
-    src: url('../assets/fonts/HelveticaNeueIt.ttf') format('truetype');
-    font-weight: 100;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'HelveticaNeue';
-    src: url('../assets/fonts/HelveticaNeue.ttf') format('truetype');
-    font-weight: 100;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'HelveticaNeue';
-    src: url('../assets/fonts/HelveticaNeueLight.ttf') format('truetype');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
-

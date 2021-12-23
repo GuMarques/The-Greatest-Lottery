@@ -14,6 +14,7 @@ html {
     display: flex;
     justify-content: space-between;
     font-style: italic;
+    font-weight: bold;
     margin-left: 130px;
     margin-right: 200px;
 } 
@@ -99,6 +100,10 @@ hr {
     margin-top: 72px;
 }
 
+.bet-board h1 b {
+    font-weight: bold;
+}
+
 .choose-game {
     color: #868686;
     font-size: 17px;
@@ -146,6 +151,7 @@ hr {
     margin-bottom: 20px;
     width: 63px;
     height: 65px;
+    font-weight: bold;
 }
 
 .action-buttons {
