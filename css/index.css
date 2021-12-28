@@ -201,8 +201,6 @@ hr {
     margin-top: 40px;
     height: fit-content;
     background: linear-gradient(to bottom, white 0%, white 50%, #F4F4F4 90%, #F4F4F4 100%);
-    max-height: 650px;
-    overflow-y: auto;
 }
 
 .empty-cart {
@@ -221,6 +219,8 @@ hr {
 .cart-itens {
     padding-left: 16px;
     padding-right: 16px;
+    max-height: 450px;
+    overflow-y: auto;
 }
 
 .item {
