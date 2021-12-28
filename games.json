@@ -24,6 +24,14 @@
       "price": 2,
       "max-number": 5,
       "color": "#F79C31"
+    },
+    {
+      "type": "Jogo do bixo",
+      "description": "Escolha 6 números dos 12 disponíveis no jogo do bixo. 5, 4, 3 ou 2 acertos. São seis sorteios semanais e seis chances de ganhar.",
+      "range": 12,
+      "price": 3.5,
+      "max-number": 5,
+      "color": "#2D1E12"
     }
   ]
 }

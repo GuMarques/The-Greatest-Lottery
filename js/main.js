@@ -1,16 +1,16 @@
-(function(win, doc) {
+(function(_, doc) {
 
-    var numbers = [];
-    var cartTotalValue = 0;
-    var game;
+    let numbers = [];
+    let cartTotalValue = 0;
+    let game;
 
-    var completeGameButton = doc.querySelector('[data-js="complete-game-button"]');
+    const completeGameButton = doc.querySelector('[data-js="complete-game-button"]');
     completeGameButton.addEventListener('click', completeGame, false);
 
-    var clearGameButton = doc.querySelector('[data-js="clear-game-button"]');
+    const clearGameButton = doc.querySelector('[data-js="clear-game-button"]');
     clearGameButton.addEventListener('click', clearGame, false);
     
-    var addGameButton = doc.querySelector('[data-js="add-game-button"]');
+    const addGameButton = doc.querySelector('[data-js="add-game-button"]');
     addGameButton.addEventListener('click', addGameToCart, false);
 
     function loadGames() {
@@ -21,16 +21,15 @@
     }
     function ajaxGamesEvent() {
         if(this.readyState === 4 && this.status === 200) {
-            var response = JSON.parse(this.responseText);
+            let response = JSON.parse(this.responseText);
             buildGames(response.types);
         }
     }
     function buildGames(types) {
-        console.log(types);
-        var buttonsContainer = doc.querySelector('[data-js="games-buttons"]');
-        var clickFirstGame = false;
+        let buttonsContainer = doc.querySelector('[data-js="games-buttons"]');
+        let clickFirstGame = false;
         types.forEach((game) => {
-            var button = doc.createElement('button');
+            let button = doc.createElement('button');
             button.innerText = game.type;
             button.dataset.js = 'game-button';
             button.classList = 'game-button';
@@ -48,10 +47,10 @@
         game = gameChoosed;
         numbers = [];
 
-        var gameName = doc.querySelector('[data-js="game-name"]');
+        const gameName = doc.querySelector('[data-js="game-name"]');
         gameName.innerText = game.type.toUpperCase();
 
-        var gameButtons = doc.querySelectorAll('[data-js="game-button"]');
+        const gameButtons = doc.querySelectorAll('[data-js="game-button"]');
         gameButtons.forEach((item) => {
             item.style.color = item.style.borderColor;
             item.style.backgroundColor = '#FFFFFF';
@@ -60,11 +59,11 @@
         button.style.backgroundColor = game.color;
         button.style.color = '#FFFFFF';
 
-        var gameDescription = doc.querySelector('[data-js="game-description"]');
+        const gameDescription = doc.querySelector('[data-js="game-description"]');
         gameDescription.innerText = game.description;
-        var board = doc.querySelector('[data-js="board"]');
+        const board = doc.querySelector('[data-js="board"]');
         board.innerHTML = '';
-        var boardButtons = []
+        let boardButtons = []
         for(let i = 0; i < game.range; i++) {
             boardButtons.push(doc.createElement('button'));
             boardButtons[i].innerText = i+1;
@@ -77,7 +76,7 @@
 
     function boardButtonClick(button, index) {
 
-        var buttonPressed = index + 1;
+        let buttonPressed = index + 1;
 
         if(numbers.indexOf(buttonPressed) === -1) {
             if(numbers.length === game['max-number']) {
@@ -94,13 +93,13 @@
     }
 
     function completeGame() {
-        var numbersToComplete = game['max-number'] - numbers.length;
+        let numbersToComplete = game['max-number'] - numbers.length;
 
         for(let i = 0; i < numbersToComplete; i++) {
-            var randomNumber = Math.floor((Math.random() * game.range) + 1)
+            let randomNumber = Math.floor((Math.random() * game.range) + 1)
             if(numbers.indexOf(randomNumber) === -1) {
 
-                var buttonToPress = doc.querySelector(`[data-js="board-button-${randomNumber}"]`);
+                const buttonToPress = doc.querySelector(`[data-js="board-button-${randomNumber}"]`);
                 boardButtonClick(buttonToPress, randomNumber-1);
 
             } else {
@@ -112,7 +111,7 @@
     function clearGame() {
     
         numbers.forEach((number) => {
-            var buttonToPress = doc.querySelector(`[data-js="board-button-${number}"]`)
+            const buttonToPress = doc.querySelector(`[data-js="board-button-${number}"]`)
             buttonToPress.style.backgroundColor = '#ADC0C4';
         })
 
@@ -122,91 +121,113 @@
 
     function addGameToCart() {
         if(numbers.length !== game['max-number']) {
-            alert(`Para fazer esse jogo você precisa selecionar ${game['max-number']} números.`);
+            alert(`Para fazer esse jogo você precisa selecionar mais ${(game['max-number'] - numbers.length)} números.`);
         } else {
-            var item = doc.createElement('div');
-            item.classList = 'item';
 
-            var trashCan = doc.createElement('img');
-            trashCan.alt = 'trash-icon';
-            trashCan.src = 'assets/icons/trash.svg';
-            trashCan.addEventListener('click', () => removeGame(item), false);
+            numbers.sort(function(a, b) {
+                return a - b;
+            })
 
-            var bar = doc.createElement('bar');
-            bar.classList = 'bar';
+            if( checkIfGameAlreadyDone(numbers) ) {
+                alert('Você já realizou um jogo com esses números');
+            } else {
 
-            var itemInfos = doc.createElement('div');
-            itemInfos.classList = 'item-infos';
-
-            var pNumbers = doc.createElement('p');
-            pNumbers.classList = 'item-numbers';
-            pNumbers.innerText = numbers.map((number, index, array) => {
-                var response = '';
-                if(index !== 0) {
-                    response += ' ';
+                if(doc.querySelector('[data-js="empty-cart"]')) {
+                    let emptycart = doc.querySelector('[data-js="empty-cart"]');
+                    let cartItens = doc.querySelector('[data-js="cart-itens"]');
+                    cartItens.removeChild(emptycart);
                 }
-                if(number <= 9) {
-                    response += '0';
-                }
-                response += '' + number;
-                if(index+1 === array.length) {
-                    response += '.';
-                }
-                return response;
-            });
 
-            var itemGame = doc.createElement('div');
-            itemGame.classList = 'item-game';
+                let item = doc.createElement('div');
+                item.classList = 'item';
 
-            var itemGameName = doc.createElement('p');
-            itemGameName.classList = 'item-game-name';
-            itemGameName.innerText = game.type;
-            itemGameName.style.color = game.color;
+                let trashCan = doc.createElement('img');
+                trashCan.alt = 'trash-icon';
+                trashCan.src = 'assets/icons/trash.svg';
+                trashCan.addEventListener('click', () => removeGame(item), false);
 
-            var itemGameValue = doc.createElement('p');
-            itemGameValue.classList = 'item-game-value';
-            const reg = /\./g;
-            var brl = new Intl.NumberFormat("pt-BR", {
-                style: 'currency',
-                currency: 'BRL'
-            }).format(game.price);
-            itemGameValue.innerText = brl;
+                let bar = doc.createElement('bar');
+                bar.classList = 'bar';
+                bar.style.backgroundColor = game.color;
+                /* if (game['max-number'] > 9) {
+                    bar.style.width = '8px';
+                } */
 
-            itemGame.appendChild(itemGameName);
-            itemGame.appendChild(itemGameValue);
-            
-            itemInfos.appendChild(pNumbers);
-            itemInfos.appendChild(itemGame);
+                let itemInfos = doc.createElement('div');
+                itemInfos.classList = 'item-infos';
 
-            item.appendChild(trashCan);
-            item.appendChild(bar);
-            item.appendChild(itemInfos);
+                let pNumbers = doc.createElement('p');
+                pNumbers.classList = 'item-numbers';
+                pNumbers.dataset.js= 'item-numbers';
 
-            var cartItens = doc.querySelector('[data-js="cart-itens"]');
-            cartItens.appendChild(item);
+                pNumbers.innerText = numbers.map((number, index, array) => {
+                    let response = '';
+                    if(index !== 0) {
+                        response += ' ';
+                    }
+                    if(number <= 9) {
+                        response += '0';
+                    }
+                    response += '' + number;
+                    if(index+1 === array.length) {
+                        response += '.';
+                    }
+                    return response;
+                });
+
+                let itemGame = doc.createElement('div');
+                itemGame.classList = 'item-game';
+
+                let itemGameName = doc.createElement('p');
+                itemGameName.classList = 'item-game-name';
+                itemGameName.dataset.js = 'item-game-name';
+                itemGameName.innerText = game.type;
+                itemGameName.style.color = game.color;
+
+                let itemGameValue = doc.createElement('p');
+                itemGameValue.classList = 'item-game-value';
+                let brl = new Intl.NumberFormat("pt-BR", {
+                    style: 'currency',
+                    currency: 'BRL'
+                }).format(game.price);
+                itemGameValue.innerText = brl;
+
+                itemGame.appendChild(itemGameName);
+                itemGame.appendChild(itemGameValue);
+                
+                itemInfos.appendChild(pNumbers);
+                itemInfos.appendChild(itemGame);
+
+                item.appendChild(trashCan);
+                item.appendChild(bar);
+                item.appendChild(itemInfos);
+
+                let cartItens = doc.querySelector('[data-js="cart-itens"]');
+                cartItens.appendChild(item);
 
 
-            cartTotalValue += game.price;
-            var totalValue = new Intl.NumberFormat("pt-BR", {
-                style: 'currency',
-                currency: 'BRL'
-            }).format(cartTotalValue);
+                cartTotalValue += game.price;
+                let totalValue = new Intl.NumberFormat("pt-BR", {
+                    style: 'currency',
+                    currency: 'BRL'
+                }).format(cartTotalValue);
 
-            doc.querySelector('[data-js="total-value"]').innerText = totalValue;
+                doc.querySelector('[data-js="total-value"]').innerText = totalValue;
 
-            clearGame();
+                clearGame();
+            }
 
         }
 
         function removeGame(item) {
 
-            var itemValue = item.lastChild.lastChild.lastChild.innerText.replace(/^\D+/g,'');
+            let itemValue = item.lastChild.lastChild.lastChild.innerText.replace(/^\D+/g,'');
 
             itemValue = itemValue.replace(/,/g, '.');
 
             cartTotalValue -= Number(itemValue);
 
-            var totalValue = new Intl.NumberFormat("pt-BR", {
+            let totalValue = new Intl.NumberFormat("pt-BR", {
                 style: 'currency',
                 currency: 'BRL'
             }).format(cartTotalValue);
@@ -214,8 +235,40 @@
             doc.querySelector('[data-js="total-value"]').innerText = totalValue;
 
 
-            var cartItens = doc.querySelector('[data-js="cart-itens"]');
+            let cartItens = doc.querySelector('[data-js="cart-itens"]');
             cartItens.removeChild(item);
+
+            if(cartItens.childElementCount === 0) {
+                let pEmptyCart = doc.createElement('p');
+                pEmptyCart.classList = 'empty-cart';
+                pEmptyCart.dataset.js = 'empty-cart';
+                pEmptyCart.innerText = 'Carrinho vazio, faça um jogo para adiciona-lo aqui.';
+                cartItens.appendChild(pEmptyCart);
+            }
+
+        }
+
+        function checkIfGameAlreadyDone(numbersGame) {
+            let allGames = doc.querySelectorAll('[data-js="item-numbers"]');
+            let allGamesName = doc.querySelectorAll('[data-js="item-game-name"]')
+            let response = false;
+            allGames.forEach((item, index) => {
+                let nGameNumbers = item.innerText.replace('.', '');
+                nGameNumbers = nGameNumbers.split(',').map(function(num) {
+                    return parseInt(num, 10);
+                })
+
+                let equals = numbersGame.every((val, index) => 
+                    val === nGameNumbers[index]
+                );
+
+                if(equals) {
+                    if(allGamesName[index].innerText === game.type) {
+                        response = true;
+                    }
+                };
+            });
+            return response;
         }
     }
     loadGames();
